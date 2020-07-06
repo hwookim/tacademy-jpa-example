@@ -32,6 +32,7 @@ class MemberTest {
             Member expected = new Member();
             expected.setId(100L);
             expected.setName("test");
+            expected.setMemberType(MemberType.USER);
 
             em.persist(expected);
             tx.commit();
@@ -50,6 +51,7 @@ class MemberTest {
     void save() {
         Member expected = new Member();
         expected.setName("test");
+        expected.setMemberType(MemberType.USER);
 
         Member actual = members.save(expected);
 
