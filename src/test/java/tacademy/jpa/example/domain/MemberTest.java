@@ -30,14 +30,13 @@ class MemberTest {
 
         try {
             Member expected = new Member();
-            expected.setId(100L);
             expected.setName("test");
             expected.setMemberType(MemberType.USER);
 
             em.persist(expected);
             tx.commit();
 
-            Member actual = em.find(Member.class, 100L);
+            Member actual = em.find(Member.class, expected.getId());
             assertThat(actual).isEqualTo(expected);
         } catch (Exception e) {
             tx.rollback();
